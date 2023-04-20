@@ -8,8 +8,6 @@ public class Day1Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Day1Application.class, args);
-		
-		//hi
 	}
 
 }
