@@ -54,5 +54,28 @@ public class IPLController {
 		iser.deleteInfo(playerId);
 		return "Player Id "+playerId+" is deleted";
 	}
+
+	//sorting
+	@GetMapping("/sortdes/{pname}")
+	public List<IPLModel> sortPlayer(@PathVariable("pname") String pname)
+	{
+		return iser.sortDesc(pname);
+	}
+	
+	//Pagination
+	@GetMapping("/pagination/{pnu}/{psize}")
+	public List<IPLModel> paginationData(@PathVariable("pnu") int pnu,@PathVariable("psize") int psize)
+	{
+		return iser.paginationData(pnu, psize);
+	}
+	
+	//Pagination and sorting 
+	@GetMapping("/paginationSorting/{pnu}/{psize}/{pname}")
+	public List<IPLModel> paginationSorting(@PathVariable("pnu") int pnu,@PathVariable("psize") int psize,@PathVariable("pname") String pname)
+	{
+		return iser.paginationandSorting(pnu, psize, pname);
+	}
+	
+	
 	
 }

@@ -10,6 +10,7 @@ public class IPLModel {
 	
 	private int playerId;
 	private String playerName;
+	
 	private String playerCountry;
 	public int getPlayerId() {
 		return playerId;
