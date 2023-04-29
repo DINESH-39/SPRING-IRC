@@ -1,6 +1,11 @@
 package com.example.springrest.SpringRestAPI.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.springrest.SpringRestAPI.dao.UserRepository;
@@ -31,11 +36,30 @@ public String validateUser(String username,String password)
 			}
 			else
 			{
-				result="Login failed";
+				result="Incorrect Password";
 			}
 		}
 	
 
 	return result;
+	}
+
+	//sorting
+	public List<User> sortDesc(String pname)
+	{
+		return userRepo.findAll(Sort.by(pname).descending());
+	}
+	
+	//Pagination
+	public List<User> paginationData(int pageNu,int pagesize)
+	{
+		Page<User> p=userRepo.findAll(PageRequest.of(pageNu, pagesize));
+		return  p.getContent();
+	}
+
+	public List<User> paginationandSorting(int pageNu,int pageSize,String name)
+	{
+		Page <User> p=userRepo.findAll(PageRequest.of(pageNu, pageSize, Sort.by(name).descending()));
+		return p.getContent();
 	}
 }
