@@ -8,51 +8,44 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-
 import com.example.registration.Model.VehicleModel;
 import com.example.registration.Repository.VehicleRepo;
 
 @Service
-public class VehicleService {
+public class VehicleService 
+{
 
 	@Autowired
 	public VehicleRepo vrep;
-	
 	
 	public VehicleModel saveInfo(VehicleModel vmod)
 	{
 		return vrep.save(vmod);
 	}
-	
-	public List<VehicleModel> getInfo()
-	{
-		return vrep.findAll();
-	}
-	
 	public VehicleModel updateInfo(VehicleModel vmodl)
 	{
 		return vrep.saveAndFlush(vmodl);
 	}
-	
-	public  void  deleteInfo(String regno)
+	public List<VehicleModel> getInfo()
 	{
-		vrep.deleteById(regno);
+		return vrep.findAll();
 	}
-	
-	
+	public void deleteInfo(int id)
+	{
+		vrep.deleteById(id);
+	}
 	public List<VehicleModel> sortDesc(String name)
 	{
 		return vrep.findAll(Sort.by(name).descending());
 	}
-	
-	public List<VehicleModel> paginationData(int pageNu,int pagesize)
+	public List<VehicleModel> paginationData(int pnu,int psize)
 	{
-		Page<VehicleModel> p=vrep.findAll(PageRequest.of(pageNu, pagesize));
-		return  p.getContent();
+		Page <VehicleModel> p=vrep.findAll(PageRequest.of(pnu, psize));
+		return p.getContent();
 	}
-	public List<VehicleModel> paginationandSorting(int pageNu,int pageSize,String name)
+	public List<VehicleModel> pagiationandSorting(int pnu,int psize,String name)
 	{
-		Page <VehicleModel> p=vrep.findAll(PageRequest.of(pageNu, pageSize, Sort.by(name).descending()));
+		Page<VehicleModel> p=vrep.findAll(PageRequest.of(pnu, psize, Sort.by(name).descending()));
 		return p.getContent();
 	}
 	

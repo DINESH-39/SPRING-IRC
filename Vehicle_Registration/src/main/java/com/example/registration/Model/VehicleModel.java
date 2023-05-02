@@ -6,30 +6,44 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="Vehicle_Details")
-public class VehicleModel {
+public class VehicleModel 
+{
 
 	@Id
-	private String reg_no;
-	private String VehicleType;
+	private int id;
+	private String regno;
+	private String ownername;
+	private String vehicletype;
 	private String manufacturer;
-	private String modelName;
-	private String reg_year;
-	private String fuelType;
-	private String OwnerName;
+	private String modelmame;
+	private String fueltype;
+	private int regyear;
 	private int cc;
-	private String reg_state;
+	private String regstate;
 	private String colour;
-	public String getReg_no() {
-		return reg_no;
+	public int getId() {
+		return id;
 	}
-	public void setReg_no(String reg_no) {
-		this.reg_no = reg_no;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String getVehicleType() {
-		return VehicleType;
+	public String getRegno() {
+		return regno;
 	}
-	public void setVehicleType(String vehicleType) {
-		VehicleType = vehicleType;
+	public void setRegno(String regno) {
+		this.regno = regno;
+	}
+	public String getOwnername() {
+		return ownername;
+	}
+	public void setOwnername(String ownername) {
+		this.ownername = ownername;
+	}
+	public String getVehicletype() {
+		return vehicletype;
+	}
+	public void setVehicletype(String vehicletype) {
+		this.vehicletype = vehicletype;
 	}
 	public String getManufacturer() {
 		return manufacturer;
@@ -37,29 +51,23 @@ public class VehicleModel {
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public String getModelName() {
-		return modelName;
+	public String getModelmame() {
+		return modelmame;
 	}
-	public void setModelName(String modelName) {
-		this.modelName = modelName;
+	public void setModelmame(String modelmame) {
+		this.modelmame = modelmame;
 	}
-	public String getReg_year() {
-		return reg_year;
+	public String getFueltype() {
+		return fueltype;
 	}
-	public void setReg_year(String reg_year) {
-		this.reg_year = reg_year;
+	public void setFueltype(String fueltype) {
+		this.fueltype = fueltype;
 	}
-	public String getFuelType() {
-		return fuelType;
+	public int getRegyear() {
+		return regyear;
 	}
-	public void setFuelType(String fuelType) {
-		this.fuelType = fuelType;
-	}
-	public String getOwnerName() {
-		return OwnerName;
-	}
-	public void setOwnerName(String ownerName) {
-		OwnerName = ownerName;
+	public void setRegyear(int regyear) {
+		this.regyear = regyear;
 	}
 	public int getCc() {
 		return cc;
@@ -67,11 +75,11 @@ public class VehicleModel {
 	public void setCc(int cc) {
 		this.cc = cc;
 	}
-	public String getReg_state() {
-		return reg_state;
+	public String getRegstate() {
+		return regstate;
 	}
-	public void setReg_state(String reg_state) {
-		this.reg_state = reg_state;
+	public void setRegstate(String regstate) {
+		this.regstate = regstate;
 	}
 	public String getColour() {
 		return colour;
@@ -79,6 +87,7 @@ public class VehicleModel {
 	public void setColour(String colour) {
 		this.colour = colour;
 	}
+	
 	
 	
 	
