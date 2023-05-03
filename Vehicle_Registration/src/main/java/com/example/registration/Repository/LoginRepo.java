@@ -8,5 +8,5 @@ import com.example.registration.Model.LoginModel;
 
 public interface LoginRepo extends JpaRepository<LoginModel, Integer> {
 	
-	 LoginModel findbyusername(String username);
+	 LoginModel findByusername(String username);
 }

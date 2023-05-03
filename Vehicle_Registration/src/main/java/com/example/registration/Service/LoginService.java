@@ -17,7 +17,7 @@ public class LoginService {
 	
 	public String validateUser(String username,String password)
 	{
-		LoginModel v=lrepo.findbyusername(username);
+		LoginModel v=lrepo.findByusername(username);
 		if(v==null)
 		{
 			return "Invalid User";

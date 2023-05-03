@@ -1,6 +1,6 @@
 package com.example.mapping.Model;
 
-import java.util.List;
+
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

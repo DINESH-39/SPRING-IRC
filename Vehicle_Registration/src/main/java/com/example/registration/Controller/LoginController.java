@@ -18,19 +18,18 @@ public class LoginController {
 	@Autowired
 	private LoginService lser;
 	@PostMapping("/login")
-	public String Login(@RequestBody Map<String, String> LoginModel)
+	public String Login(@RequestBody Map<String, String> loginData)
 	{
-		String username=LoginModel.get("username");
-		String password=LoginModel.get("password");
+		String username=loginData.get("username");
+		String password=loginData.get("password");
 		String result=lser.validateUser(username, password);
 		return result;
 	}
 	
 	@PostMapping("/adduser")
-	public String addUser(@RequestBody LoginModel lmo)
+	public LoginModel addUser(@RequestBody LoginModel lmo)
 	{
-		lser.addUser(lmo);
-		return "Saved"; 
+		return lser.addUser(lmo); 
 	}
 	@GetMapping("/cget")
 	public List<LoginModel> listAll()
