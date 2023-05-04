@@ -32,4 +32,24 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer>
 	@Query(value = "update customer set cname=:name where cid=:id",nativeQuery = true)
 	public void updatebyidname(@Param("name") String name,@Param("id") int id);
 	
+	
+	
+	//JPQL
+	
+	@Query("select s from Customer s where s.cname=?1")
+	public List<Customer> getbyjc(@Param("cname")String cname);
+	
+	@Query("select s from Customer s where s.cid between ?1 and ?2")
+	public List<Customer> betweenjc(@Param("start")int start,@Param("end")int end);
+	
+	@Query(value="select s from Customer s where s.cname like 'B%'")
+	public List<Customer> likejc();
+	
+	@Modifying
+	@Transactional
+	@Query(value="update Customer s set s.cname=?1 where s.cid=?2")
+	public void updatejc(@Param("cname")String cname,@Param("id")int id);
+	
+	
+	
 }

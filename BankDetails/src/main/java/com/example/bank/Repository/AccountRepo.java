@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional;
 
 public interface AccountRepo extends JpaRepository<Account, Integer> 
 {
+	public List<Account> findBybname(String bname);
 	
 	@Query(value = "select * from account_details",nativeQuery = true)
 	public List<Account> getAllData();
@@ -32,4 +33,25 @@ public interface AccountRepo extends JpaRepository<Account, Integer>
 	@Transactional
 	@Query(value = "update account_details set bid=:id where bname=:name",nativeQuery = true)
 	public void updatebyidname(@Param("id") int id,@Param("name") String name);
+	
+	//JPQL
+	@Query("select s from Account s where s.bname=?1")
+	public List<Account> getbybnamej(@Param("bname")String bname);
+	
+	@Query("select s from Account s where s.bid between ?1 and ?2")
+	public List<Account> betweenj(@Param("start")int start,@Param("end")int end);
+	
+	@Query(value="select s from Account s where s.bname like 'S%'")
+	public List<Account> likej();
+	
+	@Modifying
+	@Transactional
+	@Query(value="update Account s set s.bname=?1 where s.bid=?2")
+	public void updatej(@Param("bname")String bname,@Param("id")int id);
+	
+	
+	@Modifying
+	@Transactional
+	@Query(value = "delete from Account s where s.bid=?1")
+	public void deletej(@Param("bid") int bid);
 }
