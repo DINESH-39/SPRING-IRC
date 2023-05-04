@@ -25,14 +25,11 @@ public interface CustomerRepo extends JpaRepository<Customer, Integer>
 	@Query(value="select * from customer where cid between :start and :end",nativeQuery=true)
 	public List<Customer> startend(@Param("start") int start,@Param("end") int end);
 	
-	@Modifying
-	@Transactional
-	@Query(value = "delete from customer where cid=?1 and cname=?2",nativeQuery = true)
-	Integer deletebyId(@Param("id") int id,@Param("name") String name);
+	
 	
 	@Modifying
 	@Transactional
-	@Query(value = "update customer set cid=:id where cname=:name",nativeQuery = true)
-	public void updateDetails(@Param("id") int id,@Param("name") String name);
+	@Query(value = "update customer set cname=:name where cid=:id",nativeQuery = true)
+	public void updatebyidname(@Param("name") String name,@Param("id") int id);
 	
 }

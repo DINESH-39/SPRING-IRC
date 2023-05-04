@@ -1,4 +1,4 @@
-package com.example.logging.Model;
+package com.example.log.Model;
 
 import java.lang.ModuleLayer.Controller;
 
@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class LogModel {
+public class LoggingModel
+{
 
 	Logger log=LoggerFactory.getLogger(Controller.class);
 	@RequestMapping("/")
@@ -22,5 +23,4 @@ public class LogModel {
 		
 		return "completed";
 	}
-		
 }
