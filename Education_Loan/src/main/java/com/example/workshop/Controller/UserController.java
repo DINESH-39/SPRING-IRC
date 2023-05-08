@@ -3,6 +3,7 @@ package com.example.workshop.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,9 +45,16 @@ public class UserController
 	@GetMapping(value="/viewLoan/{user}")
 	public LoanApplicationModel getById(@PathVariable int user)
 	{
-		LoanApplicationModel gbi=userSer.getById(user);
-		return gbi;
+		LoanApplicationModel gi=userSer.getById(user);
+		return gi;
 		
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public String delete(@PathVariable int id)
+	{
+		userSer.deleteid(id);
+		return "Deleted";
 	}
 	
 	

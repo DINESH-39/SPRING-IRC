@@ -45,14 +45,19 @@ public class UserService
 	}
 	public List<UserModel> get()
 	{
-		List<UserModel> um=userRep.findAll();
-		return um;
+		List<UserModel> gm=userRep.findAll();
+		return gm;
 	}
 	
 	public LoanApplicationModel getById(int id)
 	{
-		LoanApplicationModel gbi=laRep.findById(id).get();
-		return gbi;
+		LoanApplicationModel gi=laRep.findById(id).get();
+		return gi;
+	}
+	public void deleteid(int id) 
+	{
+		
+		userRep.deleteById(id);
 	}
 
 }
