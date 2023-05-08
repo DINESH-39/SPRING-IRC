@@ -19,4 +19,18 @@ public class LoanApplicationService
 		List<LoanApplicationModel> l=laRep.findAll();
 		return l;
 	}
+	
+	public void deleteid(int id) 
+	{
+		
+		laRep.deleteById(id);
+	}
+	public LoanApplicationModel update(LoanApplicationModel lmu) 
+	{
+		return laRep.saveAndFlush(lmu);
+	}
+	public LoanApplicationModel saveUser(LoanApplicationModel lms)
+	{
+		return laRep.save(lms);
+	}
 }

@@ -59,5 +59,10 @@ public class UserService
 		
 		userRep.deleteById(id);
 	}
+	public UserModel update(UserModel pu) 
+	{
+		return userRep.saveAndFlush(pu);
+	}
 
+	
 }
