@@ -15,7 +15,7 @@ public class VehicleModel
 	private String ownername;
 	private String vehicletype;
 	private String manufacturer;
-	private String modelmame;
+	private String modelname;
 	private String fueltype;
 	private int regyear;
 	private int cc;
@@ -51,11 +51,11 @@ public class VehicleModel
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
-	public String getModelmame() {
-		return modelmame;
+	public String getModelname() {
+		return modelname;
 	}
 	public void setModelmame(String modelmame) {
-		this.modelmame = modelmame;
+		this.modelname = modelmame;
 	}
 	public String getFueltype() {
 		return fueltype;
@@ -86,6 +86,12 @@ public class VehicleModel
 	}
 	public void setColour(String colour) {
 		this.colour = colour;
+	}
+	@Override
+	public String toString() {
+		return "VehicleModel [id=" + id + ", regno=" + regno + ", ownername=" + ownername + ", vehicletype="
+				+ vehicletype + ", manufacturer=" + manufacturer + ", modelname=" + modelname + ", fueltype=" + fueltype
+				+ ", regyear=" + regyear + ", cc=" + cc + ", regstate=" + regstate + ", colour=" + colour + "]";
 	}
 	
 	

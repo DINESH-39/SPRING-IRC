@@ -1,6 +1,7 @@
 package com.example.registration.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +31,11 @@ public class VehicleService
 	{
 		return vrep.findAll();
 	}
+	public Optional<VehicleModel> getbyid(int id)
+	{
+		return vrep.findById(id);
+	}
+	
 	public void deleteInfo(int id)
 	{
 		vrep.deleteById(id);
@@ -37,6 +43,9 @@ public class VehicleService
 	public List<VehicleModel> sortDesc(String name)
 	{
 		return vrep.findAll(Sort.by(name).descending());
+	}
+	public List<VehicleModel> sortAsc(String name) {
+		return vrep.findAll(Sort.by(name).ascending());
 	}
 	public List<VehicleModel> paginationData(int pnu,int psize)
 	{
@@ -46,6 +55,11 @@ public class VehicleService
 	public List<VehicleModel> pagiationandSorting(int pnu,int psize,String name)
 	{
 		Page<VehicleModel> p=vrep.findAll(PageRequest.of(pnu, psize, Sort.by(name).descending()));
+		return p.getContent();
+	}
+	public List<VehicleModel> pagiationandSortingAsc(int pnu,int psize,String name)
+	{
+		Page<VehicleModel> p=vrep.findAll(PageRequest.of(pnu, psize, Sort.by(name).ascending()));
 		return p.getContent();
 	}
 	

@@ -17,14 +17,14 @@ public class LoginController {
 
 	@Autowired
 	private LoginService lser;
-	@PostMapping("/login")
-	public String Login(@RequestBody Map<String, String> loginData)
-	{
-		String username=loginData.get("username");
-		String password=loginData.get("password");
-		String result=lser.validateUser(username, password);
-		return result;
-	}
+//	@PostMapping("/login")
+//	public String Login(@RequestBody Map<String, String> loginData)
+//	{
+//		String username=loginData.get("username");
+//		String password=loginData.get("password");
+//		String result=lser.validateUser(username, password);
+//		return result;
+//	}
 	
 	@PostMapping("/adduser")
 	public LoginModel addUser(@RequestBody LoginModel lmo)
